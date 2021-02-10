@@ -1,0 +1,14 @@
+<h1>Restaurant : <%= @restaurant.name %></h1>
+
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+
+<h2>Reviews :</h2>
+<ul class="col-6 justify-content-center">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="d-flex justify-content-between"><%= review.rating %> : <%= review.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to "List of restaurants", restaurants_path %>
+<%= link_to "Add review", new_restaurant_review_path(@restaurant) %>
